@@ -312,12 +312,12 @@ async def get_all_message(bot: Bot, ev: Event):
             group_id = None
             msg_id = ev.id
             sender = ev.author.dict()
-            sender['nickname'] = ev.author.username
         # 群聊
         elif isinstance(ev, GuildMessageEvent):
             user_type = 'group'
             group_id = str(ev.channel_id)
             sender = ev.author.dict()
+            sender['nickname'] = ev.author.username
             if ev.member and ev.member.roles:
                 if 4 in ev.member.roles:
                     pm = 2
